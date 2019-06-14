@@ -49,8 +49,11 @@ const Event = {
  */
 
 class Button {
+  // constructorにdomオブジェクトを受け取り、propertyに設定している
   constructor(element) {
     this._element = element
+    // Data・・・インスタンスにidを割り振りstoreし、一元管理するためのオブジェクト
+    // 他のclassのインスタンスとの連携に使うのか?
     Data.setData(element, DATA_KEY, this)
   }
 
