@@ -64,11 +64,12 @@ class Button {
   }
 
   // Public
-
+  // チェック状態をtoggleするメソッド
   toggle() {
     let triggerChangeEvent = true
     let addAriaPressed = true
 
+    // SelectorEngine・・・IE11互換のdomを取得するためのオブジェクト
     const rootElement = SelectorEngine.closest(
       this._element,
       Selector.DATA_TOGGLE
@@ -117,14 +118,15 @@ class Button {
       this._element.classList.toggle(ClassName.ACTIVE)
     }
   }
-
+  
+  // domオブジェクトの破棄
   dispose() {
     Data.removeData(this._element, DATA_KEY)
     this._element = null
   }
 
   // Static
-
+  // jQueryオブジェクトにインスタンスを登録
   static _jQueryInterface(config) {
     return this.each(function () {
       let data = Data.getData(this, DATA_KEY)
@@ -149,7 +151,7 @@ class Button {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
+// イベントハンドラーの設定
 EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE_CARROT, event => {
   event.preventDefault()
 
