@@ -69,7 +69,7 @@ class Button {
     let triggerChangeEvent = true
     let addAriaPressed = true
 
-    // SelectorEngine・・・IE11互換のdomを取得するためのオブジェクト
+    // SelectorEngine・・・IE11互換のdomを取得するためのオブジェクト + Dom操作を疎結合にするためのwrapperオブジェクト?
     const rootElement = SelectorEngine.closest(
       this._element,
       Selector.DATA_TOGGLE
